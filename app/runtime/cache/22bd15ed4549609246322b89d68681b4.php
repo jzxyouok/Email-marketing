@@ -1,0 +1,3 @@
+<?php
+//000000000000a:4:{s:6:"fields";a:6:{i:0;s:2:"id";i:1;s:11:"accountname";i:2;s:13:"accountgender";i:3;s:12:"accountemail";i:4;s:8:"add_time";i:5;s:7:"gruopid";}s:4:"bind";a:6:{s:2:"id";i:1;s:11:"accountname";i:2;s:13:"accountgender";i:2;s:12:"accountemail";i:2;s:8:"add_time";i:2;s:7:"gruopid";i:1;}s:4:"type";a:6:{s:2:"id";s:7:"int(11)";s:11:"accountname";s:12:"varchar(255)";s:13:"accountgender";s:12:"varchar(255)";s:12:"accountemail";s:12:"varchar(255)";s:8:"add_time";s:8:"datetime";s:7:"gruopid";s:7:"int(11)";}s:2:"pk";s:2:"id";}
+?>
