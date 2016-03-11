@@ -22,6 +22,7 @@ class Sendmail
 		$senders = M('senders');
 		$themes = M('themes');
 		$data = $this->returndata($id);
+		var_dump($data);
 		//var_dump($data);exit();
 
 		//$data['0']['content'] = $this->moban($data['0']['content']); //内容模板解析

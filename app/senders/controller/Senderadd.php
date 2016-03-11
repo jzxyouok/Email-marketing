@@ -21,23 +21,24 @@ class Senderadd
 		$sendergroupresult = $sendergroup->add();
 		$content  = trim($content);
 		$arr=explode("\n",$content);
-
 			foreach ($arr as $key=>$val){
-				$arr[$key]=explode("|",$val);
-				$data[$key] = [
+				$arrs[$key]=explode("|",$val);
+				var_dump($arrs);
+				exit();
+				$data[$key] = array(
 					'gruopid' => $sendergroupresult,
-					'sendname' => $arr[$key]['0'],
-					'apikey' => $arr[$key]['1'],
-					'sendemail' => $arr[$key]['2'],
-					'domain' => $arr[$key]['3'],
-				];
+					'sendname' => $arrs[$key]['0'],
+					'apikey' =>  $arrs[$key]['1'],
+					'sendemail' => $arrs[$key]['2'],
+					'domain' => $arrs[$key]['3'],
+				);
 
 					 $senderresult = $senders->create($data[$key]);
 					 $accountresult = $senders->add();	 		  
 			}		
 
 			$message = new \think\Response();
-			if($accountresult and $accountgroupresult){
+			if($accountresult){
 					return $message->success('收件人新增成功！','','/accounts/accountlist/','2');
 			}
 			else{

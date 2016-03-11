@@ -116,7 +116,7 @@
                   <select name="sendemail" id="sendemail">
 
               {foreach name="sendmaildata" id="val" key="key" empty="empty"}
-                 <option value="{$val.sendemail}">{$val.sendemail}</option>
+                 <option value="{$val.groupid}">{$val.name} (共{$val.count})</option>
               {/foreach}
 
                </select>        
@@ -130,7 +130,7 @@
                 <dd>
                    <select name="addresseeemail" id="addresseeemail">
                    {foreach name="accountgroupdata" id="val" key="key" empty="empty"}
-                 <option value="{$val.groupid}">{$val.name}</option>
+                 <option value="{$val.groupid}">{$val.name} (共{$val.count})</option>
               {/foreach}
               </select>        
 

@@ -9,7 +9,7 @@ class Accountlist
 		$count = $Account->count();
 		$view = new \think\View();
 		$view->assign('count',$count);
-		$Page  = new \think\Pagehome($count,10);
+		$Page  = new \think\Pagehome($count,100);
 		$show  = $Page->show();
 		$Accountdata  = $Account->limit($Page->firstRow.','.$Page->listRows)->select();
 

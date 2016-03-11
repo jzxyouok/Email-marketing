@@ -6,9 +6,15 @@ class Taskadd
 	public function index(){
 
 		$themesdata = M('themes')->select();
-		$sendmaildata = M('mailsenders')->select();
+		$sendmaildata = M('mailsendergroup')->select();
 		$accountgroupdata = M('accountgroup')->select();
-		
+		foreach ($sendmaildata as $key => $value) {
+			$sendmaildata[$key]['count'] = M('mailsenders')->where("groupid='".$value['groupid']."'")->count();
+		}
+
+		foreach ($accountgroupdata as $key => $value) {
+			$accountgroupdata[$key]['count'] = M('accounts')->where("groupid='".$value['groupid']."'")->count();
+		}
 
 		$view = new \think\View();
 		$view->assign('accountgroupdata',$accountgroupdata);
@@ -23,8 +29,8 @@ class Taskadd
 			'name'=>  I('post.name'),
 			'themesid' => I('post.moban'),
 			'sendemail' => trim(I('post.sendemail')),
-			'emailsj' => trim(I('post.emailsj')) ,
 			'sendseelp' => I('post.sendseelp'),
+			'emailsj' => trim(I('post.emailsj')) ,
 			'addresseeemail' =>trim(I('post.addresseeemail')),
 			'addtime' => date('Y:m:d H:i:s'),
 			'sendmoshi' => I('post.sender_moshi'),
