@@ -71,7 +71,7 @@
 			<li class="tit"><a>营销统计</a></li>
 			<li>
 				<ul>
-				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>				</ul>
+				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>				</ul>
 			</li>
 		</ul>
         
@@ -116,7 +116,7 @@
                   <select name="sendemail" id="sendemail">
 
               <?php if(is_array($sendmaildata)): foreach($sendmaildata as $key=>$val): ?>
-                 <option value="<?php echo $val['sendemail']; ?>"><?php echo $val['sendemail']; ?></option>
+                 <option value="<?php echo $val['groupid']; ?>"><?php echo $val['name']; ?> (共<?php echo $val['count']; ?>)</option>
               <?php endforeach; endif; if(empty($sendmaildata)): echo '"empty'; endif; ?>
 
                </select>        
@@ -130,7 +130,7 @@
                 <dd>
                    <select name="addresseeemail" id="addresseeemail">
                    <?php if(is_array($accountgroupdata)): foreach($accountgroupdata as $key=>$val): ?>
-                 <option value="<?php echo $val['groupid']; ?>"><?php echo $val['name']; ?></option>
+                 <option value="<?php echo $val['groupid']; ?>"><?php echo $val['name']; ?> (共<?php echo $val['count']; ?>)</option>
               <?php endforeach; endif; if(empty($accountgroupdata)): echo '"empty'; endif; ?>
               </select>        
 

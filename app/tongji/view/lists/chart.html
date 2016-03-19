@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>邮件营销系统</title>
+  <link rel="stylesheet" type="text/css" href="/Public/Css/public.css?v1.0" />
+  <script type="text/javascript" src="/Public/Js/jquery.js?v1.7.1"></script>
+  <script type="text/javascript" src="/public/string?v1.0"></script>
+  <script type="text/javascript" src="/Public/Js/jquery.validate.js?v1.11.1"></script>
+  <script type="text/javascript" src="/Public/Js/formcheck.js?v1.0"></script>
+  <script type="text/javascript" src="/Public/Js/common.js?v1.0"></script>
+  <script type="text/javascript" src="/Public/Js/laydate.js"></script>
+</head>
+<body id="admin">
+  <div id="Tasks_tasklist">
+  <!-- 头部 -->
+    <div id="header">
+      <div id="logo">
+        <a href="/index/index/"><img src="/Public/Images/slogo.png" alt="logo"></a>
+      </div>
+
+      <div id="headright">
+      
+
+        <ul id="headlink">
+          <li><a href="/senders/senderadd" class="addpeople">发件人添加</a></li>
+          <li><a href="/themes/themeadd" class="addtheme">模板添加</a></li>
+          <li><a href="/tasks/taskadd" class="sendnew">任务添加</a></li>
+
+        </ul>
+      </div>
+    </div>
+  <!-- 主体 -->
+  <div id="center">
+  <!-- 左边栏 -->
+  <div id="leftbar">
+    <ul class="Tasks">
+      <li class="tit"><a>任务管理</a></li>
+      <li>
+        <ul>
+        <li><a href="/tasks/tasklist">任务列表</a></li><li><a href="/tasks/taskadd">任务添加</a></li>       </ul>
+      </li>
+    </ul>
+        
+        
+        <ul class="Senders">
+      <li class="tit"><a>发件人管理</a></li>
+      <li>
+        <ul>
+        <li><a href="/senders/senderlist">发件人列表</a></li>
+                <li><a href="/senders/sendergroup">发件人组</a></li><li><a href="/senders/senderadd">发件人添加</a></li>       </ul>
+      </li>
+    </ul>
+      
+          <ul class="Senders">
+      <li class="tit"><a>收件箱管理</a></li>
+      <li>
+        <ul>
+        <li><a href="/accounts/accountlist">收件人列表</a></li><li><a href="/accounts/accountgroup">收件人组</a></li><li><a href="/accounts/accountadd">收件人添加</a></li>       </ul>
+      </li>
+    </ul>
+        
+      <ul class="Themes">
+      <li class="tit"><a>模板管理</a></li>
+      <li>
+        <ul>
+        <li><a href="/themes/themelist">模板列表</a></li><li><a href="/themes/themeadd">模板添加</a></li>	<li><a href="/themes/yuminglist">域名库管理</a></li>       </ul>
+      </li>
+    </ul>
+        
+            <ul class="Themes">
+      <li class="tit"><a>营销统计</a></li>
+      <li>
+        <ul>
+        <li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>        </ul>
+      </li>
+    </ul>
+        
+        </div>
+  <!-- 核心模块 -->
+<div id="rightbar">
+
+<div class="toolbar">
+			<div class="toolbar_left">24小时统计</div>			
+</div>
+
+
+ <div class="selectdate mt15">
+	<div class="selectdate_right" style="margin-right:70px;">
+		<form id="form1" name="form1" method="get" action="/tongji/lists/chart/date/">
+             <input name="date" type="text" id="date" value=""  size="10" maxlength="10" class="inp01">
+             <input type="button" name="Submit" value="分析" onclick="javascript:form1.submit()" class="but_search">
+		</form>
+	
+	</div>
+	<script>
+;!function(){
+laydate.skin('molv');
+laydate({
+    elem: '#date', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+    event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+    
+});
+}();
+</script>
+
+
+	
+</div>
+
+
+
+ <!--Step:1 Prepare a dom for ECharts which (must) has size (width & hight)-->
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <div id="main" style="height:500px;border:1px solid #ccc;padding:10px;"></div>  
+    <!--Step:2 Import echarts.js-->
+    <!--Step:2 引入echarts.js-->
+    <script src="/public/js/echarts/echarts.js"></script>
+    
+    <script type="text/javascript">
+    // Step:3 conifg ECharts's path, link to echarts.js from current page.
+    // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+    require.config({
+        paths: {
+            echarts: '/public/js/echarts/'
+        }
+    });
+    
+    // Step:4 require echarts and use it in the callback.
+    // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar',
+            'echarts/chart/line',
+            'echarts/chart/map'
+        ],
+        function (ec) {
+            //--- 折柱 ---
+            var myChart = ec.init(document.getElementById('main'));
+            myChart.setOption({
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['24小时打开']
+                },
+                 toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                 },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        data:[{foreach name="data" id="val" key="key" empty="empty"}{$val.date},{/foreach}]
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        splitArea : {show : true}
+                    }
+                ],
+    
+                
+                  series : [
+                    {
+                        name:'24小时打开',
+                        type:'line',
+                        stack: '位数',
+                        data:[{foreach name="data" id="val" key="key" empty="empty"}{$val.count},{/foreach}  ]
+                    }
+                ]
+    
+            });
+        }
+    );
+    </script>
+
+
+
+
+
+
+</div>
+    
+    
+ 
+
+
+
+<link rel="stylesheet" type="text/css" href="/Public/Css/colorbox.css?v1.3" />
+<script type="text/javascript" src="/Public/Js/colorbox.js?v1.3.19.3"></script>
+<script type="text/javascript" src="/Public/Js/jquery.zxxbox.min.js?v4.0"></script>
+<script type="text/javascript" src="/Public/Js/lhgcore.min.js?v1.4.5"></script>
+<script type="text/javascript" src="/Public/Js/lhgcalendar.min.js?v2.0.3"></script>
+
+
+        <br />
+        <div class="loadingwrapper"><span class="loading"></span></div>
+  </div>
+    <!-- 底部 -->
+    </div>
+    <div id="footer">
+      2016 &copy;
+      Email: <a href="mailto:248278242@qq.com">248278242@qq.com</a>
+    </div>
+  </div>
+</body>
+</html>

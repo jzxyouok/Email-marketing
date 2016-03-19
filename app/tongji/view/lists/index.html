@@ -9,6 +9,8 @@
   <script type="text/javascript" src="/Public/Js/jquery.validate.js?v1.11.1"></script>
   <script type="text/javascript" src="/Public/Js/formcheck.js?v1.0"></script>
   <script type="text/javascript" src="/Public/Js/common.js?v1.0"></script>
+  <script type="text/javascript" src="/Public/Js/laydate.js"></script>
+
 </head>
 <body id="admin">
 	<div id="Tasks_tasklist">
@@ -58,7 +60,6 @@
 				<li><a href="/accounts/accountlist">收件人列表</a></li><li><a href="/accounts/accountgroup">收件人组</a></li><li><a href="/accounts/accountadd">收件人添加</a></li>				</ul>
 			</li>
 		</ul>
-        
       <ul class="Themes">
 			<li class="tit"><a>模板管理</a></li>
 			<li>
@@ -78,28 +79,56 @@
         </div>
 	<!-- 核心模块 -->
 <div id="rightbar">
-		<h1>发件人列表</h1>
+		<h1>邮件打开列表</h1>
 		
-		<!-- 帮助信息 -->
-				<div class="alert alert-info">
-				    <button class="close" data-dismiss="alert">×</button>
-				    <strong>帮助!</strong>
-					<ol>
-						
-       		</ol>
-				</div>
+	<div class="selectdate mt15">
+	<div class="selectdate_left">
+	<ul>
+		<li><a href="/tongji/lists/chart/" target="_blank">24小时统计浏览</a></li>
+		&nbsp;
+		<li><a href="/tongji/lists/index/action/1/" target="_blank">点击到站</a></li>	
+		<li><a href="/tongji/lists/index/action/2/" target="_blank">订阅</a></li>	
+		<li><a href="/tongji/lists/index/action/3/" target="_blank">退订</a></li>
+	</ul>
+	</div>
+	<div class="selectdate_right" style="margin-right:70px;">
+		<form id="form1" name="form1" method="get" action="/tongji/lists/index/">
+             <input name="date" type="text" id="date" value="" size="10" maxlength="10" class="inp01">
+             <input type="button" name="Submit" value="分析" onclick="javascript:form1.submit()" class="but_search">
+		</form>
+	<ul>
+		<li><a href="/tongji/daochu/index/action/1/">导出有效邮箱</a></li>
+		<li><a href="/tongji/daochu/index/action/3/">导出退订邮箱</a></li>
+	</ul>
+	</div>
+	<script>
+;!function(){
+laydate.skin('molv');
+laydate({
+    elem: '#date', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+    event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+    
+});
+}();
+</script>
+</div>
+
 		
 <div class="box">
   <p class="boxtitle">
-    <img alt="tag" src="/Public/Images/tag.png">发件人列表  </p>
+    <img alt="tag" src="/Public/Images/tag.png">邮件打开列表  </p>
   <div class="boxitem">
   <table>
     <thead>
     <tr>
-      <th>API Key</th>
-      <th>发送人</th>
+      <th>id</th>
+      <th>ip</th>
+      <th>系统/浏览器</th>
+      <th>模板/标题</th>
+      <th>发送时间</th>
+      <th>打开时间</th>
       <th>发件人Email</th>
-      <th>Domain Name</th>
+      <th>收件人Email</th>
        <th>操作</th>
     </tr>
     </thead>
@@ -107,14 +136,15 @@
     
      {foreach name="data" id="val" key="key" empty="empty"}
     <tr>
-      <td width="20%" class="inputmodify" field="sender_firstname" primarykey="5">{$val.apikey}</td>
-      <td width="20%" class="inputmodify" field="sender_lastname" primarykey="5">{$val.sendname}</td>
-      <td width="20%" class="inputmodify" field="sender_lastname" primarykey="5">{$val.sendemail}</td>
-      <td width="20%" class="inputmodify" field="sender_email" primarykey="5" >{$val.domain}</td>
-      <td width="15%">
-       <button value="5" class="delete">修改</button>
-        <button value="5" class="delete">删除</button>
-      </td>
+      <td width="8%" class="inputmodify" primarykey="5">{$val.id}</td>
+      <td width="10%" class="inputmodify"  primarykey="5">{$val.ip}</td>
+      <td width="10%" class="inputmodify"  primarykey="5">{$val.xitong}/{$val.liulanqi}</td>
+      <td width="5%" class="inputmodify"  primarykey="5" >{$val.moban}/{$val.title}</td>
+      <td width="15%" class="inputmodify"  primarykey="5" >{$val.time}</td>
+      <td width="15%" class="inputmodify"  primarykey="5" >{$val.clicktime}</td>
+      <td width="20%" class="inputmodify"  primarykey="5" >{$val.fasong_email}</td>
+      <td width="20%" class="inputmodify"  primarykey="5" >{$val.jieshou_email}</td>
+      <td width="20%" class="inputmodify"  primarykey="5" >{$val.action}</td>
     </tr>
       {/foreach}
     </tbody>

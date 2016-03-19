@@ -61,7 +61,7 @@ class Build
             }
         }
     }
-
+ 
     // 创建模块
     protected static function buildModule($module, $list)
     {

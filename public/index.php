@@ -17,7 +17,7 @@ define('APP_PATH', __DIR__ . '/../app/');
 define('APP_DEBUG', true);
 
 //文件生成
-define('APP_AUTO_BUILD',true);
+define('APP_AUTO_BUILD',false);
 
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';

@@ -15,7 +15,7 @@ class Taskadd
 		foreach ($accountgroupdata as $key => $value) {
 			$accountgroupdata[$key]['count'] = M('accounts')->where("groupid='".$value['groupid']."'")->count();
 		}
-
+		
 		$view = new \think\View();
 		$view->assign('accountgroupdata',$accountgroupdata);
 		$view->assign('themesdata',$themesdata);

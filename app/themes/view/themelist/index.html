@@ -73,7 +73,7 @@
 			<li class="tit"><a>营销统计</a></li>
 			<li>
 				<ul>
-				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>				</ul>
+				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>				</ul>
 			</li>
 		</ul>
         
@@ -96,23 +96,46 @@
   <p class="boxtitle">
     <img alt="tag" src="/Public/Images/tag.png">邮件模板--模板列表  </p>
   <div class="boxitem">
-    <ul id="themelist">
-    {foreach name="data" id="val" key="key" empty="empty"}
-        <li>
-                <div class="themename">{$val.title}</div>
-                <div class="themethumbnails">
-                	{$val.content}
-                </div>
-                <div class="action">
-             
+  
+  <table>
+    <thead>
+    <tr style="background: none;">
+      <th>ID</th>
+      <th>模板名称</th>
+      <th>模板内容</th>
+      <th>模板标题</th>
+       <th>添加时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    
+  
+    
+  
+           
+        
+ {foreach name="data" id="val" key="key" empty="empty"}
+    <tr style="height: 200px; background: none;">
+      <td width="10%" class="tdcenter">{$val.id}</td>
+      <td width="10%" class="tdcenter">{$val.title}</td>
+      <td width="10%">{$val.content}</td>
+      <td width="25%">
+      {foreach name="val['theme_title']" id="sub"}
+     <a href="/themes/themelist/sc/id/{$sub.tid}/" target="_blank" >{$sub.content_title}</a><br>
+      {/foreach}
+       <br></td>
+      <td width="10%">{$val.time}</td>
+      <td width="10%" class="tdcenter">
+     
+        <a href="/themes/themelist/del/id/{$val.id}/" class="button delete">删除</a>
+      </td>
+    </tr>  
+   {/foreach}
+    </tbody>
+  </table>
 
-                    <a class="ico edit" href="" title="修改">修改</a>
-
-                    <button class="ico del delete" value="1" rel="Theme">删除</button>
-                </div>
-            </li> 
-           {/foreach}
-               </ul>
   </div>
     <br class="cb">
 </div>

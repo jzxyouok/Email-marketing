@@ -71,7 +71,7 @@
 			<li class="tit"><a>营销统计</a></li>
 			<li>
 				<ul>
-				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>				</ul>
+				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>				</ul>
 			</li>
 		</ul>
         

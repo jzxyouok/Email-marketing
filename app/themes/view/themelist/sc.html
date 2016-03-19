@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -63,7 +63,7 @@
 			<li class="tit"><a>模板管理</a></li>
 			<li>
 				<ul>
-				<li><a href="/themes/themelist">模板列表</a></li><li><a href="/themes/themeadd">模板添加</a></li>	<li><a href="/themes/yuminglist">域名库管理</a></li>		</ul>
+				<li><a href="/themes/themelist">模板列表</a></li><li><a href="/themes/themeadd">模板添加</a></li>	<li><a href="/themes/yuminglist">域名库管理</a></li>				</ul>
 			</li>
 		</ul>
         
@@ -71,89 +71,42 @@
 			<li class="tit"><a>营销统计</a></li>
 			<li>
 				<ul>
-				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>				</ul>
+				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>				</ul>
 			</li>
 		</ul>
         
         </div>
 	<!-- 核心模块 -->
 		<div id="rightbar">
-		<h1>添加收件人</h1>
+		<h1>模板</h1>
 		
-		<!-- 帮助信息 -->
-				<div class="alert alert-info">
-				    <button class="close" data-dismiss="alert">×</button>
-				    <strong>帮助!</strong>
-					<ol>
-	
-            <li>请添加收件人到系统
-            </li>
-          <li>格式：email|收件人姓名|性别</li>
-        	</ol>
-				</div>
-<style>
-.form-control {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-.form-control {
-    display: block;
-    width: 44%;
-    height: 32px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-</style>
+
 <div class="box">
   <p class="boxtitle">
-    <img alt="tag" src="/Public/Images/tag.png">添加收件人  </p>
+    <img alt="tag" src="/Public/Images/tag.png">模板  </p>
   <div class="boxitem">
-        <form action="/accounts/accountadd/save" method="post" id="senderform">
+      
             <dl>
-        
-                <dt>&nbsp;</dt>
-                <br class="cb">
+               {foreach name="data" id="val" key="key" empty="empty"}
+                <dt>模板标题</dt>
+                <dd>
+                <textarea name="theme_title" id="theme_title" cols="100" rows="3">{$val.content_title}</textarea>
                 
-                 <dt>收件人组名称</dt>
-                <dd><input type="text" name="name" value="" size="25">
-                  <span class="red">*</span>
+                
                 </dd>
-               
-                <div class="form-group">
-                <label>收件人在这里逐行&nbsp;&nbsp;</label>
-                <textarea class="form-control" name="content" rows="18" style="height:400px; width:800px;"></textarea>
-            </div>
+
+
+                <br class="cb">
+
+                <dt>模板内容</dt>
+                <dd>
+                <textarea name="content" id="theme_content" cols="100" rows="30">{$val.content}</textarea>
                 
                 
-                
-                <dt>&nbsp;</dt>
-                <dd><input type="submit" value="提交" name="submit"></dd>
+                </dd>
+                 {/foreach}
             </dl>
-			</form>
+			
         <br class="cb">
   </div>
 </div>

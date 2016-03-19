@@ -73,7 +73,7 @@
 			<li class="tit"><a>营销统计</a></li>
 			<li>
 				<ul>
-				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>				</ul>
+				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>				</ul>
 			</li>
 		</ul>
         
@@ -96,23 +96,46 @@
   <p class="boxtitle">
     <img alt="tag" src="/Public/Images/tag.png">邮件模板--模板列表  </p>
   <div class="boxitem">
-    <ul id="themelist">
-    <?php if(is_array($data)): foreach($data as $key=>$val): ?>
-        <li>
-                <div class="themename"><?php echo $val['title']; ?></div>
-                <div class="themethumbnails">
-                	<?php echo $val['content']; ?>
-                </div>
-                <div class="action">
-             
+  
+  <table>
+    <thead>
+    <tr style="background: none;">
+      <th>ID</th>
+      <th>模板名称</th>
+      <th>模板内容</th>
+      <th>模板标题</th>
+       <th>添加时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    
+  
+    
+  
+           
+        
+ <?php if(is_array($data)): foreach($data as $key=>$val): ?>
+    <tr style="height: 200px; background: none;">
+      <td width="10%" class="tdcenter"><?php echo $val['id']; ?></td>
+      <td width="10%" class="tdcenter"><?php echo $val['title']; ?></td>
+      <td width="10%"><?php echo $val['content']; ?></td>
+      <td width="25%">
+      <?php if(is_array($val['theme_title'])): foreach($val['theme_title'] as $key=>$sub): ?>
+     <a href="/themes/themelist/sc/id/<?php echo $sub['tid']; ?>/" target="_blank" ><?php echo $sub['content_title']; ?></a><br>
+      <?php endforeach; endif; ?>
+       <br></td>
+      <td width="10%"><?php echo $val['time']; ?></td>
+      <td width="10%" class="tdcenter">
+     
+        <a href="/themes/themelist/del/id/<?php echo $val['id']; ?>/" class="button delete">删除</a>
+      </td>
+    </tr>  
+   <?php endforeach; endif; if(empty($data)): echo '"empty'; endif; ?>
+    </tbody>
+  </table>
 
-                    <a class="ico edit" href="" title="修改">修改</a>
-
-                    <button class="ico del delete" value="1" rel="Theme">删除</button>
-                </div>
-            </li> 
-           <?php endforeach; endif; if(empty($data)): echo '"empty'; endif; ?>
-               </ul>
   </div>
     <br class="cb">
 </div>

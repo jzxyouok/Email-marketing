@@ -71,7 +71,7 @@
       <li class="tit"><a>营销统计</a></li>
       <li>
         <ul>
-        <li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>        </ul>
+        <li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>        </ul>
       </li>
     </ul>
         
@@ -113,7 +113,7 @@
       <td width="20%" class="inputmodify" field="sender_firstname" primarykey="5"><?php echo $val['accountemail']; ?></td>
       <td width="15%" class="inputmodify" field="sender_lastname" primarykey="5"><?php echo $val['accountgender']; ?></td>
       <td width="15%" class="inputmodify" field="sender_lastname" primarykey="5"><?php echo $val['accountname']; ?></td>
-      <td width="15%" class="inputmodify" field="sender_email" primarykey="5" ><?php echo $val['gruopid']; ?></td>
+      <td width="15%" class="inputmodify" field="sender_email" primarykey="5" ><?php echo $val['groupid']; ?></td>
       <td width="15%" class="inputmodify" field="sender_email" primarykey="5" ><?php echo $val['send_time']; ?></td>
       <td width="10%">
        <button value="5" class="delete">修改</button>

@@ -71,7 +71,7 @@
 			<li class="tit"><a>营销统计</a></li>
 			<li>
 				<ul>
-				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/qushi/">流量趋势</a></li>				</ul>
+				<li><a href="/tongji/lists/">整体分析</a></li><li><a href="/tongji/visitor/">流量趋势</a></li>				</ul>
 			</li>
 		</ul>
         
@@ -95,6 +95,10 @@
             <li>随机变量:<span class="red">%rand_1%</span></li>
             <li>随机字母:<span class="red">%rand_a%</span></li>
              <li>随机域名:<span class="red">%rand_yuming%</span></li>
+             <li>获取发送标题id:<span class="red">%send_title_id%</span></li>
+             <li>获取发送模板id:<span class="red">%send_moban_id%</span></li>
+              <li>获取当前时间:<span class="red">%send_date%</span></li>
+              <li>模板标题每行一个</li>
             <li>如果你是发送到mailgun的列表，请使用下面的标签</li>
         	</ol>
 				</div>
@@ -113,6 +117,16 @@
 
              
                 </dd>
+                 <br class="cb">
+
+                <dt>模板标题</dt>
+                <dd>
+                <textarea name="theme_title" id="theme_title" cols="100" rows="20"></textarea>
+                
+                
+                </dd>
+
+
                 <br class="cb">
 
                 <dt>模板内容</dt>

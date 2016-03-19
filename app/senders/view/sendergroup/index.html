@@ -78,7 +78,7 @@
         </div>
   <!-- 核心模块 -->
 <div id="rightbar">
-    <h1>收件人组列表</h1>
+    <h1>发件人组列表</h1>
     
     <!-- 帮助信息 -->
         <div class="alert alert-info">
@@ -91,7 +91,7 @@
     
 <div class="box">
   <p class="boxtitle">
-    <img alt="tag" src="/Public/Images/tag.png">收件人列表  </p>
+    <img alt="tag" src="/Public/Images/tag.png">发件人列表  </p>
   <div class="boxitem">
   <table>
     <thead>
@@ -108,7 +108,7 @@
     <tr>
     <td width="10%" class="inputmodify" field="sender_firstname" primarykey="5">{$val.groupid}</td>
       <td width="30%" class="inputmodify" field="sender_firstname" primarykey="5">{$val.name}</td>
-      <td width="30%" class="inputmodify" field="sender_lastname" primarykey="5">{$val.add_times}</td>
+      <td width="30%" class="inputmodify" field="sender_lastname" primarykey="5">{$val.add_time}</td>
    
    
       <td width="10%">
@@ -120,27 +120,6 @@
     </tbody>
 </table>
   </div>
-</div>
-
-<div id="senderverifybox">
-    <div class="boxitem">
-         <dl>
-            <dt>账户名称</dt>
-            <dd><select name="account_id" id="account_id"><option value="3">13123123123123123123123</option><option value="5">3123123123</option></select></dd>
-            <br class="cb">
-
-            <dt>发件人邮箱</dt>
-            <dd><input type="text" value="" size="45" name="sender_email" id="input_sender_email" class="readonly" readonly></dd>
-            <br class="cb">
-
-            <dt>&nbsp;</dt>
-            <dd>
-                <input type="submit" value="提交" id="senderverifysubmit">
-                <span id="senderverifyresult"></span>
-            </dd>
-         </dl>
-         <br class="cb">
-    </div>
 </div>
 
 <div class="pagelink">

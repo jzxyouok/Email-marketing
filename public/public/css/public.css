@@ -13,14 +13,17 @@ h1{font:bold 20px 'Microsoft YaHei',sans-serif;color:#868686;}
 .cb{clear: both;}
 #bulletin a{color:blue;}
 #bulletin a.hot{color:red;background: url("../images/new.png") no-repeat right top;padding-right: 23px;}
-
+.mt15 {
+    margin-top: 15px;
+    margin-bottom:15px;
+}
 /*表单样式*/
 input,select,textarea{font-family:'Microsoft YaHei',sans-serif; font-size: 12px;}
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
     border-color: #23C1CD !important;
     box-shadow: none;
 }
-#admin input[type=text],#admin input[type=password],#admin select,#admin textarea{border:none!important;box-shadow:0 0 5px #CCC;vertical-align:middle;min-width:100px;margin:5px;padding:13px;}
+#admin input[type=text],#admin input[type=password],#admin select,#admin textarea{border: 1px solid #64B3C1 !important;box-shadow:0 0 5px #CCC;vertical-align:middle;min-width:100px;margin:5px;padding:13px;}
 input[type=submit]{color:#fff;box-shadow:0 0 3px rgba(0,0,0,0.2) inset;background:#2FADE7;cursor:pointer;border:1px solid #fff;border-radius:4px;margin:10px 2px;padding:6px 50px;}
 input[type=submit]:hover{border:1px solid #235CDB;}
 .inputmodify{word-break:break-all;}
@@ -351,3 +354,42 @@ body#admin{background:#23C1CD;position: relative;}
 .lhgcal_foot_today a:hover,.lhgcal_foot_del a:hover{border:1px solid #0a246a;background-color:#c2cbe0;}
 .lhgcal_foot_time input{margin:0;padding:0;border:1px solid #999;width:20px;height:17px;font:11px Verdana,Arial;text-align:center;background-color:#f2f2f2;line-height:17px;}
 .runcode{background:url(../images/icondate.gif) no-repeat scroll right center #F7F7F7;border:1px solid #DDD;cursor:pointer;font:12px tahoma,arial;height:21px;width:150px;}
+
+.toolbar {
+    height: 45px;
+    color: #333;
+    border-bottom: 1px solid #dedede;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    position: relative;
+}
+.toolbar_left {
+    float: left;
+    width: 660px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    font-size: 20px;
+    text-align: left;
+    overflow: hidden;
+}
+/*选择时段*/
+.selectdate{width:100%;height:40px;line-height:40px;background:#fff;border:1px solid #dedede;border-radius:3px;}
+.selectdate_left{float:left;width:630px;height:40px;line-height:40px;font-size:14px;padding-left:35px;background:url(blueimg/icon_sprite.png) no-repeat 12px -27px;}
+.selectdate_left .title{color:#666;}
+.selectdate_left li{float:left;color:#666; margin-right:10px;}
+.selectdate_left a{float:left;color:#666;}
+.selectdate_left a.selected{color:#e67333;font-weight:bold;}
+.selectdate_left a.pre{float:left;width:46px;height:40px;background:url(blueimg/preday.png) no-repeat 0 center;display:inline;margin-left:10px;}
+.selectdate_left a.next{float:left;width:46px;height:40px;background:url(blueimg/preday.png) no-repeat -52px center;display:inline;margin-left:10px;}
+.selectdate_left span{float:left;padding:0 5px;color:#ccc;}
+.selectdate_right{float:right;height:40px;line-height:38px;font-size:14px;color:#666;padding-right:8px;}
+.selectdate_right span{float:left;padding-left:10px;color:#666;}
+.selectdate .inp01{border:1px solid #ccc;width:85px;padding:2px 5px;font-family:"微软雅黑";font-size:12px;color:#666;background:#f9f9f9 url(blueimg/cal.png) no-repeat 75px 2px;    margin: 5px !important;
+    padding: 5px !important;}
+.selectdate .but_search{width:50px;border:0;background:#f2602f;height:26px;color:#fff;font-family:"微软雅黑";font-size:14px;border-radius:2px;border-bottom:1px solid #c94214;}
+
+.selecttime{padding:5px 10px;height:30px;line-height:40px;background:#fff;border:1px solid #dedede;border-radius:3px;}
+.selecttime span,.selecttime b{float:left;padding-right:10px;line-height:30px;font-weight:normal;color:#666;font-size:14px;}
+
+.divblank{padding:5px 10px;height:30px;line-height:30px;background:#fff;border:1px solid #dedede;border-radius:3px;}
